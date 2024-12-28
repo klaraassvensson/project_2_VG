@@ -10,17 +10,19 @@ header a{
     margin: 15px 10px;
 }
 #connect4{
-    width: 500px;
-    height: 450px;
+    width: 560px;
+    height: 480px;
+    padding: 10px;
     background-color: rgb(84, 143, 231);
     margin: auto;
     display: flex;
     flex-wrap: wrap;
 }
 .circle{
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-color: white;
     margin: 5px;
+    flex-grow: 1;
 }
