@@ -6,35 +6,38 @@ let currentPlayer = 1;
 
 function createCircles (){
     for (let i = 0; i < nCols; i++){
+        const columnDiv = document.createElement("div");
+        boardDOM.appendChild(columnDiv);
+        columnDiv.setAttribute("id", i + 1);
+        columnDiv.classList.add("column")
         for (let j = 0; j < nRows; j++){
             const circleDiv = document.createElement("div");
-            boardDOM.appendChild(circleDiv);
+            columnDiv.appendChild(circleDiv);
             circleDiv.classList.add("circle"); 
-            circleDiv.setAttribute("id", i + "," + j)   
+            circleDiv.setAttribute("id", i + 1 + "," + (j + 1))   
         }
     }
 }
 
 createCircles()
 
-const circles = document.querySelectorAll(".circle");
+const columnsAll = document.querySelectorAll(".column");
 
-boardDOM.addEventListener("click", (e) => {
-    const clickedCircle = e.target;
-    if (clickedCircle.classList.contains("circle")){
-        const colIndex = parseInt(clickedCircle.id.match(/^(\d+),(\d+)$/)[0]);
-        for (let rowIndex = nRows - 1; rowIndex >= 0; rowIndex--){
-            const circle = document.getElementById(`${colIndex},${rowIndex}`);
+columnsAll.forEach((e) => {
+    e.addEventListener("click", () => {
+        for (let i = 5; i > 0; i--){
+            let circle = e.children[i]
             if (!circle.classList.contains("player-one") && !circle.classList.contains("player-two")){
-                if (currentPlayer == 1){
+                if(currentPlayer == 1){
                     circle.classList.add("player-one");
-                    currentPlayer = 2;
-                } else {
+                    currentPlayer = 2
+                    break;
+                } else if(currentPlayer == 2){
                     circle.classList.add("player-two");
-                    currentPlayer = 1;
+                    currentPlayer = 1
+                    break;
                 }
-                break;
             }
         }
-    }
+    })
 })
