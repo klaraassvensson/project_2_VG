@@ -1,5 +1,6 @@
 const h1DOM = document.querySelector("h1");
 const boardDOM = document.getElementById("board");
+const resetButton = document.querySelector("button")
 const nCols = 7;
 const nRows  = 6;
 let currentPlayer = 1;
@@ -117,4 +118,8 @@ columnsAll.forEach((e) => {
             h1DOM.textContent = "Game over"
         }
     })
+})
+
+resetButton.addEventListener("click", () => {
+    location.reload()
 })
