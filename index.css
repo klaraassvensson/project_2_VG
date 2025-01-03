@@ -1,5 +1,6 @@
 header, main{
     text-align: center;    
+    margin-top: 20px;
 }
 header a{
     text-decoration: none;
@@ -13,6 +14,7 @@ header a{
     width: 560px;
     height: 460px;
     padding: 10px;
+    border-radius: 10px;
     background-color: rgb(84, 143, 231);
     margin: auto;
     display: flex;

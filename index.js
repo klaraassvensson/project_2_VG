@@ -71,6 +71,17 @@ function checkWinner (){
     return null;
 }
 
+function checkGameOver (){
+    for (let columnDiv of boardDOM.children){
+        for (let rowDiv of columnDiv.children){
+            if(!rowDiv.classList.contains("player-one") && !rowDiv.classList.contains("player-two")){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 createCircles()
 
 const columnsAll = document.querySelectorAll(".column");
@@ -97,6 +108,8 @@ columnsAll.forEach((e) => {
             h1DOM.textContent = `Pink is the winner`;
         } else if (winner == "player-two"){
             h1DOM.textContent = `Green is the winner`;
+        } else if (checkGameOver()){
+            h1DOM.textContent = "Game over"
         }
     })
 })
