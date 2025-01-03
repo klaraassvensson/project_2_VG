@@ -14,7 +14,18 @@ function createCircles (){
             const circleDiv = document.createElement("div");
             columnDiv.appendChild(circleDiv);
             circleDiv.classList.add("circle"); 
-            circleDiv.setAttribute("id", i + 1 + "," + (j + 1))   
+            circleDiv.setAttribute("id", i + "," + j)   
+        }
+    }
+}
+
+function checkWinner (){
+    for (let row = 0; row < nRows; row++){
+        for (let col = 0; col < nCols; col++){
+            let circle = document.getElementById(`${col},${row}`);
+            if (circle.classList.contains("player-one") || circle.classList.contains("player-two")){
+                let playerClass = circle.classList.contains("player-one") ? "player-one" : "player-two";
+            }
         }
     }
 }
@@ -25,7 +36,7 @@ const columnsAll = document.querySelectorAll(".column");
 
 columnsAll.forEach((e) => {
     e.addEventListener("click", () => {
-        for (let i = 5; i > 0; i--){
+        for (let i = 5; i >= 0; i--){
             let circle = e.children[i]
             if (!circle.classList.contains("player-one") && !circle.classList.contains("player-two")){
                 if(currentPlayer == 1){
@@ -37,7 +48,11 @@ columnsAll.forEach((e) => {
                     currentPlayer = 1
                     break;
                 }
+                
             }
+        }
+        if (checkWinner()){
+            console.log("hej")
         }
     })
 })
