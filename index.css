@@ -32,3 +32,7 @@ header a{
 .player-two{
     background-color: rgb(78, 114, 78);
 }
+.winner{
+    border: 2px solid black;
+    box-sizing: border-box;
+}

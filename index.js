@@ -29,24 +29,40 @@ function checkWinner (){
                     document.getElementById(`${col + 1},${row}`).classList.contains(playerClass) &&
                     document.getElementById(`${col + 2},${row}`).classList.contains(playerClass) &&
                     document.getElementById(`${col + 3},${row}`).classList.contains(playerClass)){
+                        document.getElementById(`${col},${row}`).classList.add("winner")
+                        document.getElementById(`${col + 1},${row}`).classList.add("winner");
+                        document.getElementById(`${col + 2},${row}`).classList.add("winner");
+                        document.getElementById(`${col + 3},${row}`).classList.add("winner");
                         return playerClass;
                 }
                 if (row + 3 < nRows &&
                     document.getElementById(`${col},${row + 1}`).classList.contains(playerClass) &&
                     document.getElementById(`${col},${row + 2}`).classList.contains(playerClass) &&
                     document.getElementById(`${col},${row + 3}`).classList.contains(playerClass)){
+                        document.getElementById(`${col},${row}`).classList.add("winner");
+                        document.getElementById(`${col},${row + 1}`).classList.add("winner");
+                        document.getElementById(`${col},${row + 2}`).classList.add("winner");
+                        document.getElementById(`${col},${row + 3}`).classList.add("winner");
                         return playerClass;
                 }
                 if(col + 3 < nCols && row + 3 < nRows &&
                     document.getElementById(`${col + 1},${row + 1}`).classList.contains(playerClass) &&
                     document.getElementById(`${col + 2},${row + 2}`).classList.contains(playerClass) &&
                     document.getElementById(`${col + 3},${row + 3}`).classList.contains(playerClass)){
+                        document.getElementById(`${col},${row}`).classList.add("winner");
+                        document.getElementById(`${col + 1},${row + 1}`).classList.add("winner");
+                        document.getElementById(`${col + 2},${row + 2}`).classList.add("winner");
+                        document.getElementById(`${col + 3},${row + 3}`).classList.add("winner");
                         return playerClass;
                 }
-                if(col - 3 > 0 && row + 3 < nRows &&
+                if(col - 3 >= 0 && row + 3 < nRows &&
                     document.getElementById(`${col - 1},${row + 1}`).classList.contains(playerClass) &&
                     document.getElementById(`${col - 2},${row + 2}`).classList.contains(playerClass) &&
                     document.getElementById(`${col - 3},${row + 3}`).classList.contains(playerClass)){
+                        document.getElementById(`${col},${row}`).classList.add("winner");
+                        document.getElementById(`${col - 1},${row + 1}`).classList.add("winner");
+                        document.getElementById(`${col - 2},${row + 2}`).classList.add("winner");
+                        document.getElementById(`${col - 3},${row + 3}`).classList.add("winner");
                         return playerClass;
                 }
             }
@@ -76,8 +92,11 @@ columnsAll.forEach((e) => {
                 
             }
         }
-        if (checkWinner()){
-            console.log("hej")
+        let winner = checkWinner()
+        if (winner == "player-one"){
+            h1DOM.textContent = `Pink is the winner`;
+        } else if (winner == "player-two"){
+            h1DOM.textContent = `Green is the winner`;
         }
     })
 })
