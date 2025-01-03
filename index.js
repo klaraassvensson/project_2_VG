@@ -25,9 +25,34 @@ function checkWinner (){
             let circle = document.getElementById(`${col},${row}`);
             if (circle.classList.contains("player-one") || circle.classList.contains("player-two")){
                 let playerClass = circle.classList.contains("player-one") ? "player-one" : "player-two";
+                if (col + 3 < nCols &&
+                    document.getElementById(`${col + 1},${row}`).classList.contains(playerClass) &&
+                    document.getElementById(`${col + 2},${row}`).classList.contains(playerClass) &&
+                    document.getElementById(`${col + 3},${row}`).classList.contains(playerClass)){
+                        return playerClass;
+                }
+                if (row + 3 < nRows &&
+                    document.getElementById(`${col},${row + 1}`).classList.contains(playerClass) &&
+                    document.getElementById(`${col},${row + 2}`).classList.contains(playerClass) &&
+                    document.getElementById(`${col},${row + 3}`).classList.contains(playerClass)){
+                        return playerClass;
+                }
+                if(col + 3 < nCols && row + 3 < nRows &&
+                    document.getElementById(`${col + 1},${row + 1}`).classList.contains(playerClass) &&
+                    document.getElementById(`${col + 2},${row + 2}`).classList.contains(playerClass) &&
+                    document.getElementById(`${col + 3},${row + 3}`).classList.contains(playerClass)){
+                        return playerClass;
+                }
+                if(col - 3 > 0 && row + 3 < nRows &&
+                    document.getElementById(`${col - 1},${row + 1}`).classList.contains(playerClass) &&
+                    document.getElementById(`${col - 2},${row + 2}`).classList.contains(playerClass) &&
+                    document.getElementById(`${col - 3},${row + 3}`).classList.contains(playerClass)){
+                        return playerClass;
+                }
             }
         }
     }
+    return null;
 }
 
 createCircles()
