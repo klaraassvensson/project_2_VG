@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "Vinyl";
+    src: url("RubikVinyl-Regular.ttf");
+}
 header, main{
     text-align: center;    
     margin-top: 20px;
@@ -10,7 +14,11 @@ header a, button{
     border-radius: 3px;
     margin: 15px 10px;
 }
-
+h1{
+    font-family: "Vinyl";
+    color: rgb(71, 84, 60);
+    font-size: 36px;
+}
 #board{
     width: 560px;
     height: 460px;
@@ -36,6 +44,9 @@ header a, button{
     background-color: rgb(88, 128, 88);
 }
 .winner{
-    border: 2px solid black;
+    background-image: url("star.jpg");
+    background-position: center;
+    background-size: cover;
+    border: 5px solid rgb(255, 217, 0);
     box-sizing: border-box;
 }
