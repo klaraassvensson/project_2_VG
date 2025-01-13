@@ -47,6 +47,6 @@ h1{
     background-image: url("star.jpg");
     background-position: center;
     background-size: cover;
-    border: 5px solid rgb(255, 217, 0);
+    border: 3px solid rgb(0, 0, 0);
     box-sizing: border-box;
 }
