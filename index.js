@@ -1,6 +1,7 @@
 const h1DOM = document.querySelector("h1");
 const boardDOM = document.getElementById("board");
 const resetButton = document.querySelector("button")
+const title = document.querySelector("title");
 const nCols = 7;
 const nRows  = 6;
 let currentPlayer = 1;
@@ -106,16 +107,21 @@ columnsAll.forEach((e) => {
         }
         if (currentPlayer == 1){
             h1DOM.textContent = "Röds tur"
+            title.textContent = "Röds tur"
         } else {
             h1DOM.textContent = "Gröns tur"
+            title.textContent = "Gröns tur"
         }
         let winner = checkWinner()
         if (winner == "player-one"){
             h1DOM.textContent = `Röd vann`;
+            title.textContent = "Röd vann"
         } else if (winner == "player-two"){
             h1DOM.textContent = `Grön vann`;
+            title.textContent = "Grön vann"
         } else if (checkGameOver()){
-            h1DOM.textContent = "Game over"
+            h1DOM.textContent = "Game over - ingen vann"
+            title.textContent = "Game over"
         }
     })
 })
