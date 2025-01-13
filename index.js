@@ -105,13 +105,13 @@ columnsAll.forEach((e) => {
             }
         }
         if (currentPlayer == 1){
-            h1DOM.textContent = "Rosas tur"
+            h1DOM.textContent = "Röds tur"
         } else {
             h1DOM.textContent = "Gröns tur"
         }
         let winner = checkWinner()
         if (winner == "player-one"){
-            h1DOM.textContent = `Rosa vann`;
+            h1DOM.textContent = `Röd vann`;
         } else if (winner == "player-two"){
             h1DOM.textContent = `Grön vann`;
         } else if (checkGameOver()){

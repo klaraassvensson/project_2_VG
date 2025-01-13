@@ -38,10 +38,10 @@ h1{
     flex-grow: 1;
 }
 .player-one{
-    background-color: rgb(218, 104, 123);
+    background-color: rgb(211, 39, 39);
 }
 .player-two{
-    background-color: rgb(88, 128, 88);
+    background-color: rgb(39, 135, 39);
 }
 .winner{
     background-image: url("star.jpg");
