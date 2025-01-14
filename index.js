@@ -112,7 +112,9 @@ columnsAll.forEach((e) => {
             h1DOM.textContent = "Gröns tur"
             title.textContent = "Gröns tur"
         }
-        let winner = checkWinner()
+
+        let winner = checkWinner();
+
         if (winner == "player-one"){
             h1DOM.textContent = `Röd vann`;
             title.textContent = "Röd vann"
@@ -127,5 +129,9 @@ columnsAll.forEach((e) => {
 })
 
 resetButton.addEventListener("click", () => {
-    location.reload()
+    const circles = document.querySelectorAll(".circle");
+    for (let circle of circles){
+        circle.classList.remove("player-one", "player-two", "winner");
+    }
+    h1DOM.textContent = "Börja spela!"
 })
