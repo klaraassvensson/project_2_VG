@@ -2,6 +2,8 @@ const h1DOM = document.querySelector("h1");
 const boardDOM = document.getElementById("board");
 const resetButton = document.querySelector("button")
 const title = document.querySelector("title");
+const spanRed = document.querySelector("#redCounter");
+const spanGreen = document.querySelector("#greenCounter");
 const nCols = 7;
 const nRows  = 6;
 let currentPlayer = 1;
@@ -126,11 +128,13 @@ columnsAll.forEach((e) => {
         if (winner == "player-one"){
             h1DOM.textContent = `Röd vann`;
             title.textContent = "Röd vann";
-            counterRed++
+            counterRed++;
+            spanRed.textContent = counterRed;
         } else if (winner == "player-two"){
             h1DOM.textContent = `Grön vann`;
             title.textContent = "Grön vann";
             counterGreen++;
+            spanGreen.textContent = counterGreen;
         } else if (checkGameOver()){
             h1DOM.textContent = "Game over - ingen vann"
             title.textContent = "Game over"
