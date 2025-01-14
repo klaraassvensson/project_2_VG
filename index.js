@@ -7,6 +7,8 @@ const spanGreen = document.querySelector("#greenCounter");
 const nCols = 7;
 const nRows  = 6;
 let currentPlayer = 1;
+let counterRed = 0;
+let counterGreen = 0;
 
 function createCircles (){
     for (let i = 0; i < nCols; i++){
@@ -121,9 +123,6 @@ columnsAll.forEach((e) => {
         updatePlayersTurn();
 
         let winner = checkWinner();
-
-        let counterRed = 0;
-        let counterGreen = 0;
 
         if (winner == "player-one"){
             h1DOM.textContent = `Röd vann`;
