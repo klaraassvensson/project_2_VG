@@ -120,12 +120,17 @@ columnsAll.forEach((e) => {
 
         let winner = checkWinner();
 
+        let counterRed = 0;
+        let counterGreen = 0;
+
         if (winner == "player-one"){
             h1DOM.textContent = `Röd vann`;
-            title.textContent = "Röd vann"
+            title.textContent = "Röd vann";
+            counterRed++
         } else if (winner == "player-two"){
             h1DOM.textContent = `Grön vann`;
-            title.textContent = "Grön vann"
+            title.textContent = "Grön vann";
+            counterGreen++;
         } else if (checkGameOver()){
             h1DOM.textContent = "Game over - ingen vann"
             title.textContent = "Game over"
