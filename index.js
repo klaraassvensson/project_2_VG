@@ -84,6 +84,16 @@ function checkGameOver (){
     return true;
 }
 
+function updatePlayersTurn (){
+    if (currentPlayer == 1){
+        h1DOM.textContent = "Röds tur"
+        title.textContent = "Röds tur"
+    } else {
+        h1DOM.textContent = "Gröns tur"
+        title.textContent = "Gröns tur"
+    }
+}
+
 createCircles()
 
 const columnsAll = document.querySelectorAll(".column");
@@ -105,13 +115,8 @@ columnsAll.forEach((e) => {
                 
             }
         }
-        if (currentPlayer == 1){
-            h1DOM.textContent = "Röds tur"
-            title.textContent = "Röds tur"
-        } else {
-            h1DOM.textContent = "Gröns tur"
-            title.textContent = "Gröns tur"
-        }
+        
+        updatePlayersTurn();
 
         let winner = checkWinner();
 
